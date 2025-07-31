@@ -15,11 +15,18 @@ export async function POST(req: Request) {
 
   console.log('[RESPONSE]', data); // ← логируем ответ от Google
 
-  const results = (data.items || []).map((item) => ({
-    title: item.title,
-    link: item.link,
-    snippet: item.snippet,
-  }));
+  type SearchResult = {
+  title: string;
+  link: string;
+  snippet: string;
+};
+
+const results = (data.items || []).map((item: SearchResult) => ({
+  title: item.title,
+  link: item.link,
+  snippet: item.snippet,
+}));
+
 
   return Response.json({ results });
 }
