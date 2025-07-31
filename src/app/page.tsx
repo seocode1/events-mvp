@@ -114,20 +114,24 @@ export default function Home() {
       .split('\n\n') // разбиваем блоками
       .filter(Boolean)
       .map((block, i) => (
-        <div
-          key={i}
-          style={{
-            border: '1px solid #ccc',
-            borderRadius: '8px',
-            padding: '15px',
-            marginBottom: '15px',
-            background: '#f9f9f9',
-            lineHeight: 1.5,
-          }}
-        >
+    <div
+      key={i}
+      style={{
+        border: '1px solid #ccc',
+        borderRadius: '8px',
+        padding: '15px',
+        marginBottom: '15px',
+        background: '#ffffff',
+        color: '#333333',
+        lineHeight: 1.6,
+        boxShadow: '0 2px 6px rgba(0, 0, 0, 0.05)',
+      }}
+    >
+
           {block.split('\n').map((line, j) => (
-            <div key={j}>{line}</div>
-          ))}
+        <div key={j} style={{ marginBottom: 4 }}>{line}</div>
+      ))}
+
         </div>
       ))}
   </div>
