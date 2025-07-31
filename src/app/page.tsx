@@ -22,7 +22,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const filters = Object.entries(form)
