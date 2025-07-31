@@ -14,7 +14,7 @@ export default function Home() {
 
   const [results, setResults] = useState(null);
 
-  const handleChange = (e) => {
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
     setForm((prev) => ({
       ...prev,
