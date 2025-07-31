@@ -108,11 +108,31 @@ export default function Home() {
       )}
 
       {gptSummary && (
-        <div style={{ marginTop: '40px', background: '#f9f9f9', padding: '20px' }}>
-          <h2>Подборка от GPT:</h2>
-          <pre style={{ whiteSpace: 'pre-wrap' }}>{gptSummary}</pre>
+  <div style={{ marginTop: '40px' }}>
+    <h2>Подборка от GPT:</h2>
+    {gptSummary
+      .split('\n\n') // разбиваем блоками
+      .filter(Boolean)
+      .map((block, i) => (
+        <div
+          key={i}
+          style={{
+            border: '1px solid #ccc',
+            borderRadius: '8px',
+            padding: '15px',
+            marginBottom: '15px',
+            background: '#f9f9f9',
+            lineHeight: 1.5,
+          }}
+        >
+          {block.split('\n').map((line, j) => (
+            <div key={j}>{line}</div>
+          ))}
         </div>
-      )}
+      ))}
+  </div>
+)}
+
     </div>
   );
 }
