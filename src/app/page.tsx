@@ -87,9 +87,24 @@ export default function Home() {
         <label><input type="checkbox" name="festivals" onChange={handleChange} /> Фестивали</label><br />
         <label><input type="checkbox" name="clubs" onChange={handleChange} /> Клубы</label><br />
         <label><input type="checkbox" name="family" onChange={handleChange} /> Для семьи</label><br /><br />
-        <button type="submit" disabled={loading}>
-          {loading ? 'Поиск...' : 'Найти события'}
-        </button>
+        <button
+  type="submit"
+  disabled={loading}
+  style={{
+    padding: '12px 24px',
+    backgroundColor: loading ? '#999' : '#0070f3',
+    color: '#fff',
+    fontWeight: 600,
+    border: 'none',
+    borderRadius: '6px',
+    cursor: loading ? 'not-allowed' : 'pointer',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+    transition: 'background 0.2s ease',
+  }}
+>
+  {loading ? 'Поиск...' : '🔍 Найти события'}
+</button>
+
       </form>
 
       {results && (
