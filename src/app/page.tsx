@@ -12,7 +12,14 @@ export default function Home() {
     family: false,
   });
 
-  const [results, setResults] = useState(null);
+  type ResultItem = {
+  title: string;
+  link: string;
+  snippet: string;
+};
+
+const [results, setResults] = useState<ResultItem[] | null>(null);
+
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
