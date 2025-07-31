@@ -36,7 +36,7 @@ export default function Home() {
     setGptSummary(null);
 
     const filters = Object.entries(form)
-      .filter(([_, value]) => typeof value === 'boolean' && value)
+      .filter(([key, value]) => typeof value === 'boolean' && value)
       .map(([key]) => key)
       .join(', ');
 

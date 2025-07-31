@@ -15,8 +15,10 @@ export async function POST(req: Request) {
 Даты: ${from} — ${to}
 
 Результаты поиска:
-${rawSearchResults.map((r: any, i: number) => `${i + 1}. ${r.title}\n${r.snippet}\n${r.link}`).join('\n\n')}
+${(rawSearchResults as { title: string; link: string; snippet: string }[]).map((r, i) => `${i + 1}. ${r.title}\n${r.snippet}\n${r.link}`).join('\n\n')}
 `;
+
+
 
   const completion = await openai.chat.completions.create({
     model: 'gpt-4',
